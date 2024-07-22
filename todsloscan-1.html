@@ -1,176 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
  <style type="text/css">
-body {
-   margin: 0;
-   padding: 0;
-   background-color:white
-}
 
-@keyframes scaling {
-    from {
-        transform: scale(1);
-        -webkit-transform: scale(1);
-    }
 
-    to {
-        transform: scale(1.1);
-        -webkit-transform: scale(1.1);
-    }
-}
-
-@-webkit-keyframes scaling {
-    from {
-        transform: scale(1);
-        -webkit-transform: scale(1);
-    }
-
-    to {
-        transform: scale(1.1);
-        -webkit-transform: scale(1.1);
-    }
-}
-
-.jw-svg-icon-cc-off path,
-.jw-svg-icon-cc-on path {
-    display: none;
-}
-
-.jw-svg-icon-cc-off,
-.jw-svg-icon-cc-on {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg id='audio-subtitles'%3E%3Cpath fill='%23ffffff' d='M5,15 L5,13 L12,13 L12,15 L5,15 Z M14,15 L14,13 L19,13 L19,15 L14,15 Z M10,9 L10,11 L5,11 L5,9 L10,9 Z M11.9998571,11 L12.0001429,9.00000001 L19.0001429,9.00100001 L18.9998571,11.001 L11.9998571,11 Z M17,17 L21,17 L21,5 L3,5 L3,17 L12.9968832,17 L17,19.4392488 L17,17 Z M1,3 L23,3 L23,19 L19,19 L19,22.9999671 L12.4355463,19 L1,19 L1,3 Z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E%0A");
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-
-.jw-icon-cc:hover .jw-svg-icon-cc-off,
-.jw-icon-cc:hover .jw-svg-icon-cc-on,
-.jw-settings-captions:hover .jw-svg-icon-cc-off,
-.jw-settings-captions:hover .jw-svg-icon-cc-on,
-.jw-settings-captions[aria-expanded="true"] .jw-svg-icon-cc-off,
-.jw-settings-captions[aria-expanded="true"] .jw-svg-icon-cc-on {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg id='audio-subtitles'%3E%3Cpath fill='%23e50914' d='M5,15 L5,13 L12,13 L12,15 L5,15 Z M14,15 L14,13 L19,13 L19,15 L14,15 Z M10,9 L10,11 L5,11 L5,9 L10,9 Z M11.9998571,11 L12.0001429,9.00000001 L19.0001429,9.00100001 L18.9998571,11.001 L11.9998571,11 Z M17,17 L21,17 L21,5 L3,5 L3,17 L12.9968832,17 L17,19.4392488 L17,17 Z M1,3 L23,3 L23,19 L19,19 L19,22.9999671 L12.4355463,19 L1,19 L1,3 Z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E%0A");
-}
-
-.jw-svg-icon-pause path {
-    display: none;
-}
-
-.jw-svg-icon-pause {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg id='pause'%3E%3Cpath fill='%23ffffff' d='M5,3 L10,3 L10,21 L5,21 L5,3 Z M14,3 L19,3 L19,21 L14,21 L14,3 Z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E%0A");
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-
-.jw-icon-display:hover .jw-svg-icon-pause,
-.jw-icon-playback:hover .jw-svg-icon-pause {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg id='pause'%3E%3Cpath fill='%23e50914' d='M5,3 L10,3 L10,21 L5,21 L5,3 Z M14,3 L19,3 L19,21 L14,21 L14,3 Z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E%0A");
-}
-
-.jw-svg-icon-volume-100 path {
-    display: none;
-}
-
-.jw-svg-icon-volume-100 {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg id='volume-high'%3E%3Cpath fill='%23ffffff' d='M9,7.82842712 L6.82842712,10 L4,10 L4,14 L6.82842712,14 L9,16.1715729 L9,7.82842712 Z M11,21 L6,16 L2,16 L2,8 L6,8 L11,3 L11,21 Z M13.7437869,16.3889482 L12.3295734,14.9747347 C13.9546583,13.3496497 13.9546583,10.7148664 12.3295734,9.08978146 L13.7437869,7.6755679 C16.1499205,10.0817014 16.1499205,13.9828147 13.7437869,16.3889482 Z M16.2137399,18.2137399 L14.7995264,16.7995264 C17.4324159,14.1666368 17.4324159,9.89787935 14.7995264,7.26498977 L16.2137399,5.8507762 C19.6276781,9.26471437 19.6276781,14.7998018 16.2137399,18.2137399 Z M18.6836929,20.0385316 L17.2694793,18.6243181 C20.9101736,14.9836239 20.9101736,9.08089228 17.2694793,5.44019807 L18.6836929,4.02598451 C23.1054357,8.4477273 23.1054357,15.6167888 18.6836929,20.0385316 Z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E%0A");
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-
-.jw-icon-volume:hover .jw-svg-icon-volume-100 {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg id='volume-high'%3E%3Cpath fill='%23e50914' d='M9,7.82842712 L6.82842712,10 L4,10 L4,14 L6.82842712,14 L9,16.1715729 L9,7.82842712 Z M11,21 L6,16 L2,16 L2,8 L6,8 L11,3 L11,21 Z M13.7437869,16.3889482 L12.3295734,14.9747347 C13.9546583,13.3496497 13.9546583,10.7148664 12.3295734,9.08978146 L13.7437869,7.6755679 C16.1499205,10.0817014 16.1499205,13.9828147 13.7437869,16.3889482 Z M16.2137399,18.2137399 L14.7995264,16.7995264 C17.4324159,14.1666368 17.4324159,9.89787935 14.7995264,7.26498977 L16.2137399,5.8507762 C19.6276781,9.26471437 19.6276781,14.7998018 16.2137399,18.2137399 Z M18.6836929,20.0385316 L17.2694793,18.6243181 C20.9101736,14.9836239 20.9101736,9.08089228 17.2694793,5.44019807 L18.6836929,4.02598451 C23.1054357,8.4477273 23.1054357,15.6167888 18.6836929,20.0385316 Z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E%0A");
-}
-
-.jw-svg-icon-volume-50 path {
-    display: none;
-}
-
-.jw-svg-icon-volume-50 {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg id='volume-medium'%3E%3Cpath fill='%23ffffff' d='M11,7.82842712 L8.82842712,10 L6,10 L6,14 L8.82842712,14 L11,16.1715729 L11,7.82842712 Z M13,21 L8,16 L4,16 L4,8 L8,8 L13,3 L13,21 Z M15.7437869,16.3889482 L14.3295734,14.9747347 C15.9546583,13.3496497 15.9546583,10.7148664 14.3295734,9.08978146 L15.7437869,7.6755679 C18.1499205,10.0817014 18.1499205,13.9828147 15.7437869,16.3889482 Z M18.2137399,18.2137399 L16.7995264,16.7995264 C19.4324159,14.1666368 19.4324159,9.89787935 16.7995264,7.26498977 L18.2137399,5.8507762 C21.6276781,9.26471437 21.6276781,14.7998018 18.2137399,18.2137399 Z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E%0A");
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-
-.jw-icon-volume:hover .jw-svg-icon-volume-50 {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg id='volume-medium'%3E%3Cpath fill='%23e50914' d='M11,7.82842712 L8.82842712,10 L6,10 L6,14 L8.82842712,14 L11,16.1715729 L11,7.82842712 Z M13,21 L8,16 L4,16 L4,8 L8,8 L13,3 L13,21 Z M15.7437869,16.3889482 L14.3295734,14.9747347 C15.9546583,13.3496497 15.9546583,10.7148664 14.3295734,9.08978146 L15.7437869,7.6755679 C18.1499205,10.0817014 18.1499205,13.9828147 15.7437869,16.3889482 Z M18.2137399,18.2137399 L16.7995264,16.7995264 C19.4324159,14.1666368 19.4324159,9.89787935 16.7995264,7.26498977 L18.2137399,5.8507762 C21.6276781,9.26471437 21.6276781,14.7998018 18.2137399,18.2137399 Z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E%0A");
-}
-
-.jw-svg-icon-volume-0 path {
-    display: none;
-}
-
-.jw-svg-icon-volume-0 {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg id='volume-off'%3E%3Cpath fill='%23ffffff' d='M9,7.82842712 L6.82842712,10 L4,10 L4,14 L6.82842712,14 L9,16.1715729 L9,7.82842712 Z M11,21 L6,16 L2,16 L2,8 L6,8 L11,3 L11,21 Z M17,10.5857864 L20.2928932,7.29289322 L21.7071068,8.70710678 L18.4142136,12 L21.7071068,15.2928932 L20.2928932,16.7071068 L17,13.4142136 L13.7071068,16.7071068 L12.2928932,15.2928932 L15.5857864,12 L12.2928932,8.70710678 L13.7071068,7.29289322 L17,10.5857864 Z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E%0A");
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-
-.jw-icon-volume:hover .jw-svg-icon-volume-0 {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg id='volume-off'%3E%3Cpath fill='%23e50914' d='M9,7.82842712 L6.82842712,10 L4,10 L4,14 L6.82842712,14 L9,16.1715729 L9,7.82842712 Z M11,21 L6,16 L2,16 L2,8 L6,8 L11,3 L11,21 Z M17,10.5857864 L20.2928932,7.29289322 L21.7071068,8.70710678 L18.4142136,12 L21.7071068,15.2928932 L20.2928932,16.7071068 L17,13.4142136 L13.7071068,16.7071068 L12.2928932,15.2928932 L15.5857864,12 L12.2928932,8.70710678 L13.7071068,7.29289322 L17,10.5857864 Z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E%0A");
-}
-
-.jw-svg-icon-fullscreen-on path {
-    display: none;
-}
-
-.jw-svg-icon-fullscreen-on {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg id='fullscreen-on'%3E%3Cpath fill='%23ffffff' d='M4,6 L4,10 L2,10 L2,4 L8,4 L8,6 L4,6 Z M4,18 L8,18 L8,20 L2,20 L2,14 L4,14 L4,18 Z M6,8 L18,8 L18,16 L6,16 L6,8 Z M20,6 L16,6 L16,4 L22,4 L22,10 L20,10 L20,6 Z M20,18 L20,14 L22,14 L22,20 L16,20 L16,18 L20,18 Z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E%0A");
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-
-.jw-icon-fullscreen:hover .jw-svg-icon-fullscreen-on {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg id='fullscreen-on'%3E%3Cpath fill='%23e50914' d='M4,6 L4,10 L2,10 L2,4 L8,4 L8,6 L4,6 Z M4,18 L8,18 L8,20 L2,20 L2,14 L4,14 L4,18 Z M6,8 L18,8 L18,16 L6,16 L6,8 Z M20,6 L16,6 L16,4 L22,4 L22,10 L20,10 L20,6 Z M20,18 L20,14 L22,14 L22,20 L16,20 L16,18 L20,18 Z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E%0A");
-}
-
-.jw-svg-icon-fullscreen-off path {
-    display: none;
-}
-
-.jw-svg-icon-fullscreen-off {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg id='fullscreen-off'%3E%3Cpath fill='%23ffffff' d='M2,4 L22,4 L22,20 L2,20 L2,4 Z M6,8 L10,8 L10,6 L4,6 L4,10 L6,10 L6,8 Z M6,16 L6,14 L4,14 L4,18 L10,18 L10,16 L6,16 Z M18,8 L18,10 L20,10 L20,6 L14,6 L14,8 L18,8 Z M18,16 L14,16 L14,18 L20,18 L20,14 L18,14 L18,16 Z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E%0A");
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-
-.jw-icon-fullscreen:hover .jw-svg-icon-fullscreen-off {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg id='fullscreen-off'%3E%3Cpath fill='%23e50914' d='M2,4 L22,4 L22,20 L2,20 L2,4 Z M6,8 L10,8 L10,6 L4,6 L4,10 L6,10 L6,8 Z M6,16 L6,14 L4,14 L4,18 L10,18 L10,16 L6,16 Z M18,8 L18,10 L20,10 L20,6 L14,6 L14,8 L18,8 Z M18,16 L14,16 L14,18 L20,18 L20,14 L18,14 L18,16 Z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E%0A");
-}
-
-.jw-state-idle .jw-display-controls .jw-display-icon-container {
-    background: 0 0;
-    margin-bottom: 0;
-    border-radius: 50%;
-    animation-name: scaling;
-    -webkit-animation-name: scaling;
-    animation-duration: 0.6s;
-    -webkit-animation-duration: 0.6s;
-    animation-timing-function: linear;
-    -webkit-animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    -webkit-animation-iteration-count: infinite;
-    animation-direction: alternate;
-    -webkit-animation-direction: alternate;
-    background-color: rgba(0, 0, 0, 0.4);
-    border: solid 0.125rem #f7f7f7;
-    height: 75px;
-    width: 75px;
-}
-
-.jw-state-idle .jw-display-controls .jw-display-icon-container .jw-icon {
-    color: #e50914 !important;
-    height: 50px;
-    width: 50px;
-    padding: 12px;
-}
-
-.jw-progress,
-.lds-ellipsis div {
-    background: #e50914 !important;
-}
-
-.jw-settings-menu {
-    border-radius: 0.3em;
+  .jw-settings-menu {
+    border-radius: 6px;
 }
 
 .jw-sharing-link:active,
@@ -185,8 +19,277 @@ body {
 .jw-button-color[aria-expanded=true]:not(.jw-icon-cast),
 .jw-settings-content-item.jw-settings-item-active,
 .jw-settings-menu .jw-icon.jw-button-color[aria-checked="true"] .jw-svg-icon {
-    fill: #e50914 !important;
-    color: #e50914 !important;
+    fill: #FFFFFF  !important;
+    color: #FFFFFF !important;
+    background-color: transparent !important;
+}
+
+.jw-button-color {
+    -webkit-transition: opacity, -webkit-transform 0.2s ease-out;
+    -o-transition: opacity, -o-transform 0.2s ease-out;
+    transition: opacity, transform 0.2s ease-out, -webkit-transform 0.2s ease-out, -o-transform 0.2s ease-out;
+}
+
+.jw-button-color:hover {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+.jw-progress,
+.lds-ellipsis div {
+    background: #FFFFFF !important;
+}
+
+.jw-buffer {
+    background-color: #FFFFFF !important;
+}
+
+.jw-slider-horizontal .jw-slider-container {
+    height: 0.5em !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.jw-slider-vertical .jw-slider-container {
+    width: 0.4em !important;
+}
+
+.jw-text-elapsed {
+    margin-right: 12px !important;
+}
+
+.jw-text-duration {
+    margin-left: 12px !important;
+}
+
+:not(.jw-breakpoint--1) .jw-text-duration:before,
+:not(.jw-breakpoint-0) .jw-text-duration:before {
+    display: none !important;
+}
+
+.jw-breakpoint-7 .jw-slider-time {
+    padding: 0 66px !important;
+}
+
+.jw-breakpoint-7 .jw-text-duration,
+.jw-breakpoint-7 .jw-text-elapsed {
+    font-size: 0.95em !important;
+}
+
+.jw-svg-icon-cc-off path,
+.jw-svg-icon-cc-on path {
+    display: none;
+}
+
+.jw-svg-icon-cc-off,
+.jw-svg-icon-cc-on {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Cpath fill='%23FFFFFF' fill-rule='evenodd' d='M17.82 9.27s-5.768.221-11.639 0c-.543-.02-.984-.44-.984-.985 0-.544.441-.95.984-.984 5.82-.366 11.64 0 11.64 0a.984.984 0 110 1.969m-4.624 4.685s-3.508.18-7.016 0c-.543-.028-.984-.44-.984-.984s.441-.95.984-.984c3.508-.226 7.016 0 7.016 0a.984.984 0 110 1.968m9.194-7.319a3.437 3.437 0 00-2.675-3.141c-1.775-.402-4.442-.828-7.76-.828-3.49 0-6.037.396-7.693.785a3.44 3.44 0 00-2.646 3.11c-.066.94-.117 2.194-.117 3.83 0 1.64.054 2.933.122 3.913a3.443 3.443 0 002.754 3.127c.41.084.869.168 1.372.248a1.236 1.236 0 011.034 1.336 14.163 14.163 0 01-.477 2.466.507.507 0 00.655.617c1.276-.446 3.576-1.392 5.226-2.88a4.554 4.554 0 012.763-1.155c1.976-.126 3.543-.361 4.705-.596a3.434 3.434 0 002.745-3.165c.056-.967.101-2.23.101-3.814 0-1.575-.049-2.861-.109-3.853'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.jw-icon-cc:hover .jw-svg-icon-cc-off,
+.jw-icon-cc:hover .jw-svg-icon-cc-on,
+.jw-settings-captions:hover .jw-svg-icon-cc-off,
+.jw-settings-captions:hover .jw-svg-icon-cc-on,
+.jw-settings-captions[aria-expanded="true"] .jw-svg-icon-cc-off,
+.jw-settings-captions[aria-expanded="true"] .jw-svg-icon-cc-on {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Cpath fill='%23FFFFFF' fill-rule='evenodd' d='M17.82 9.27s-5.768.221-11.639 0c-.543-.02-.984-.44-.984-.985 0-.544.441-.95.984-.984 5.82-.366 11.64 0 11.64 0a.984.984 0 110 1.969m-4.624 4.685s-3.508.18-7.016 0c-.543-.028-.984-.44-.984-.984s.441-.95.984-.984c3.508-.226 7.016 0 7.016 0a.984.984 0 110 1.968m9.194-7.319a3.437 3.437 0 00-2.675-3.141c-1.775-.402-4.442-.828-7.76-.828-3.49 0-6.037.396-7.693.785a3.44 3.44 0 00-2.646 3.11c-.066.94-.117 2.194-.117 3.83 0 1.64.054 2.933.122 3.913a3.443 3.443 0 002.754 3.127c.41.084.869.168 1.372.248a1.236 1.236 0 011.034 1.336 14.163 14.163 0 01-.477 2.466.507.507 0 00.655.617c1.276-.446 3.576-1.392 5.226-2.88a4.554 4.554 0 012.763-1.155c1.976-.126 3.543-.361 4.705-.596a3.434 3.434 0 002.745-3.165c.056-.967.101-2.23.101-3.814 0-1.575-.049-2.861-.109-3.853'/%3E%3C/svg%3E");
+}
+
+.jw-svg-icon-play path {
+    display: none;
+}
+
+.jw-svg-icon-play {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='24'%3E%3Cpath fill='%23FFFFFF' fill-rule='evenodd' d='M6.313 22.05c-1.22.722-2.75-.148-2.811-1.586-.238-5.65-.21-11.216.02-16.928.057-1.408 1.53-2.282 2.751-1.62 5.481 2.97 10.822 6.162 13.825 7.992 1.174.715 1.223 2.426.091 3.21-2.89 2.002-8.095 5.507-13.876 8.932z'/%3E%3C/svg%3E%0A");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.jw-icon-display:hover .jw-svg-icon-play,
+.jw-icon-playback:hover .jw-svg-icon-play {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='24'%3E%3Cpath fill='%23FFFFFF' fill-rule='evenodd' d='M6.313 22.05c-1.22.722-2.75-.148-2.811-1.586-.238-5.65-.21-11.216.02-16.928.057-1.408 1.53-2.282 2.751-1.62 5.481 2.97 10.822 6.162 13.825 7.992 1.174.715 1.223 2.426.091 3.21-2.89 2.002-8.095 5.507-13.876 8.932z'/%3E%3C/svg%3E%0A");
+}
+
+.jw-svg-icon-pause path {
+    display: none;
+}
+
+.jw-svg-icon-pause {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='24'%3E%3Cpath fill='%23FFFFFF' fill-rule='evenodd' d='M6.867 1.013c1.177 0 2.13.932 2.13 2.082v17.81c0 1.15-.953 2.082-2.13 2.082H5.36c-1.177 0-2.131-.932-2.131-2.082V3.095c0-1.15.954-2.082 2.13-2.082h1.507zm12.772 0c1.177 0 2.131.932 2.131 2.082v17.81c0 1.15-.954 2.082-2.13 2.082h-1.507c-1.177 0-2.131-.932-2.131-2.082V3.095c0-1.15.954-2.082 2.131-2.082h1.506z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.jw-icon-display:hover .jw-svg-icon-pause,
+.jw-icon-playback:hover .jw-svg-icon-pause {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='24'%3E%3Cpath fill='%23FFFFFF' fill-rule='evenodd' d='M6.867 1.013c1.177 0 2.13.932 2.13 2.082v17.81c0 1.15-.953 2.082-2.13 2.082H5.36c-1.177 0-2.131-.932-2.131-2.082V3.095c0-1.15.954-2.082 2.13-2.082h1.507zm12.772 0c1.177 0 2.131.932 2.131 2.082v17.81c0 1.15-.954 2.082-2.13 2.082h-1.507c-1.177 0-2.131-.932-2.131-2.082V3.095c0-1.15.954-2.082 2.131-2.082h1.506z'/%3E%3C/svg%3E");
+}
+
+.jw-svg-icon-volume-100 path {
+    display: none;
+}
+
+.jw-svg-icon-volume-100 {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='24'%3E%3Cpath fill='%23FFFFFF' fill-rule='evenodd' d='M12.566 3.142c1.335-1.008 1.984-.315 2.021.916.05 1.638.265 5.055.265 7.942 0 2.886-.216 6.304-.265 7.942-.037 1.23-.686 1.924-2.02.916a482.058 482.058 0 00-4.71-3.507c-.728-.539-1.44-1.131-3.086-1.131-1.645 0-2.311-1.01-2.41-1.933-.1-.922-.153-2.11-.153-2.287 0-.177.054-1.365.153-2.288.099-.923.765-1.931 2.41-1.931s2.358-.593 3.087-1.132c.728-.538 2.728-2.01 4.708-3.507zm5.838 4.634a6.248 6.248 0 011.52 4.086 6.28 6.28 0 01-1.867 4.45c-.38.377-1.02.3-1.334-.133l-.001-.002c-.25-.344-.234-.828.069-1.128a4.498 4.498 0 001.338-3.187 4.476 4.476 0 00-1.078-2.914c-.29-.34-.316-.83-.029-1.172h.001a.907.907 0 011.38 0zm2.606-2.7a9.977 9.977 0 012.668 6.779 9.928 9.928 0 01-2.973 7.096.905.905 0 01-1.329-.073v-.001a.883.883 0 01.067-1.194 8.16 8.16 0 002.44-5.828 8.2 8.2 0 00-2.195-5.574.878.878 0 01-.007-1.187l.002-.002a.903.903 0 011.327-.017z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.jw-icon-volume:hover .jw-svg-icon-volume-100 {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='24'%3E%3Cpath fill='%23FFFFFF' fill-rule='evenodd' d='M12.566 3.142c1.335-1.008 1.984-.315 2.021.916.05 1.638.265 5.055.265 7.942 0 2.886-.216 6.304-.265 7.942-.037 1.23-.686 1.924-2.02.916a482.058 482.058 0 00-4.71-3.507c-.728-.539-1.44-1.131-3.086-1.131-1.645 0-2.311-1.01-2.41-1.933-.1-.922-.153-2.11-.153-2.287 0-.177.054-1.365.153-2.288.099-.923.765-1.931 2.41-1.931s2.358-.593 3.087-1.132c.728-.538 2.728-2.01 4.708-3.507zm5.838 4.634a6.248 6.248 0 011.52 4.086 6.28 6.28 0 01-1.867 4.45c-.38.377-1.02.3-1.334-.133l-.001-.002c-.25-.344-.234-.828.069-1.128a4.498 4.498 0 001.338-3.187 4.476 4.476 0 00-1.078-2.914c-.29-.34-.316-.83-.029-1.172h.001a.907.907 0 011.38 0zm2.606-2.7a9.977 9.977 0 012.668 6.779 9.928 9.928 0 01-2.973 7.096.905.905 0 01-1.329-.073v-.001a.883.883 0 01.067-1.194 8.16 8.16 0 002.44-5.828 8.2 8.2 0 00-2.195-5.574.878.878 0 01-.007-1.187l.002-.002a.903.903 0 011.327-.017z'/%3E%3C/svg%3E");
+}
+
+.jw-svg-icon-volume-50 path {
+    display: none;
+}
+
+.jw-svg-icon-volume-50 {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='24'%3E%3Cpath fill='%23FFFFFF' fill-rule='evenodd' d='M12.566 3.142c1.335-1.008 1.984-.315 2.021.916.05 1.638.265 5.055.265 7.942 0 2.886-.216 6.304-.265 7.942-.037 1.23-.686 1.924-2.02.916a482.058 482.058 0 00-4.71-3.507c-.728-.539-1.44-1.131-3.086-1.131-1.645 0-2.311-1.01-2.41-1.933-.1-.922-.153-2.11-.153-2.287 0-.177.054-1.365.153-2.288.099-.923.765-1.931 2.41-1.931s2.358-.593 3.087-1.132c.728-.538 2.728-2.01 4.708-3.507zm5.838 4.634a6.248 6.248 0 011.52 4.086 6.28 6.28 0 01-1.867 4.45c-.38.377-1.02.3-1.334-.133l-.001-.002c-.25-.344-.234-.828.069-1.128a4.498 4.498 0 001.338-3.187 4.476 4.476 0 00-1.078-2.914c-.29-.34-.316-.83-.029-1.172h.001a.907.907 0 011.38 0z'/%3E%3C/svg%3E%0A");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.jw-icon-volume:hover .jw-svg-icon-volume-50 {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='24'%3E%3Cpath fill='%23FFFFFF' fill-rule='evenodd' d='M12.566 3.142c1.335-1.008 1.984-.315 2.021.916.05 1.638.265 5.055.265 7.942 0 2.886-.216 6.304-.265 7.942-.037 1.23-.686 1.924-2.02.916a482.058 482.058 0 00-4.71-3.507c-.728-.539-1.44-1.131-3.086-1.131-1.645 0-2.311-1.01-2.41-1.933-.1-.922-.153-2.11-.153-2.287 0-.177.054-1.365.153-2.288.099-.923.765-1.931 2.41-1.931s2.358-.593 3.087-1.132c.728-.538 2.728-2.01 4.708-3.507zm5.838 4.634a6.248 6.248 0 011.52 4.086 6.28 6.28 0 01-1.867 4.45c-.38.377-1.02.3-1.334-.133l-.001-.002c-.25-.344-.234-.828.069-1.128a4.498 4.498 0 001.338-3.187 4.476 4.476 0 00-1.078-2.914c-.29-.34-.316-.83-.029-1.172h.001a.907.907 0 011.38 0z'/%3E%3C/svg%3E%0A");
+}
+
+.jw-svg-icon-volume-0 path {
+    display: none;
+}
+
+.jw-svg-icon-volume-0 {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='24'%3E%3Cpath fill='%23FFFFFF' fill-rule='evenodd' d='M12.379 21.017c-.942-.68-4.01-2.993-4.765-3.544-.756-.553-1.539-1.266-3.255-1.279-1.717-.013-2.34-1.043-2.436-1.98a33.707 33.707 0 01-.137-2.325c0-.128-.001-.78.045-1.487.023-.359.45-.548.743-.328l10.585 7.925c.744.556 1.017 1.095.985 1.941-.012 1.367-.823 1.755-1.765 1.077zm-.057-18.008c1.402-1.014 1.805.366 1.887 1.535.127 1.802.162 3.536.2 6.18.013.904-.997.28-1.349 0L8.148 6.82a.467.467 0 01.014-.75c.996-.727 2.568-1.91 4.16-3.06zm4.32 15.308L2.116 7.365c-.464-.35-.443-1.109-.082-1.558.362-.448 1.096-.538 1.562-.189L18.122 16.48c.465.35.48 1.111.117 1.56-.36.448-1.132.626-1.597.277'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.jw-icon-volume:hover .jw-svg-icon-volume-0 {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='24'%3E%3Cpath fill='%23FFFFFF' fill-rule='evenodd' d='M12.379 21.017c-.942-.68-4.01-2.993-4.765-3.544-.756-.553-1.539-1.266-3.255-1.279-1.717-.013-2.34-1.043-2.436-1.98a33.707 33.707 0 01-.137-2.325c0-.128-.001-.78.045-1.487.023-.359.45-.548.743-.328l10.585 7.925c.744.556 1.017 1.095.985 1.941-.012 1.367-.823 1.755-1.765 1.077zm-.057-18.008c1.402-1.014 1.805.366 1.887 1.535.127 1.802.162 3.536.2 6.18.013.904-.997.28-1.349 0L8.148 6.82a.467.467 0 01.014-.75c.996-.727 2.568-1.91 4.16-3.06zm4.32 15.308L2.116 7.365c-.464-.35-.443-1.109-.082-1.558.362-.448 1.096-.538 1.562-.189L18.122 16.48c.465.35.48 1.111.117 1.56-.36.448-1.132.626-1.597.277'/%3E%3C/svg%3E");
+}
+
+.jw-svg-icon-settings path {
+    display: none;
+}
+
+.jw-svg-icon-settings {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Cpath fill='%23FFFFFF' fill-rule='evenodd' d='M12 16.68a4.68 4.68 0 110-9.36 4.68 4.68 0 110 9.36m10.158-6.588l-.001-.001a1.461 1.461 0 01-1.248-1 9.208 9.208 0 00-.552-1.327 1.466 1.466 0 01.173-1.594c.459-.559.455-1.378-.03-1.913a11.354 11.354 0 00-.758-.758c-.534-.486-1.353-.488-1.91-.03h-.002a1.466 1.466 0 01-1.594.174 9.293 9.293 0 00-1.327-.553 1.46 1.46 0 01-1-1.246c-.071-.718-.648-1.295-1.369-1.33-.355-.017-.713-.02-1.072-.002-.722.031-1.306.61-1.377 1.33v.002a1.462 1.462 0 01-1 1.246c-.458.15-.902.336-1.327.553a1.465 1.465 0 01-1.594-.174c-.56-.458-1.377-.455-1.913.031-.265.242-.518.495-.758.758-.486.534-.488 1.352-.03 1.911v.001c.37.45.438 1.074.173 1.594a9.205 9.205 0 00-.551 1.328c-.18.55-.67.942-1.248.999-.717.07-1.294.65-1.33 1.369-.017.356-.017.713-.002 1.072.033.723.61 1.306 1.33 1.377h.002a1.463 1.463 0 011.248 1c.15.459.335.902.551 1.327a1.463 1.463 0 01-.172 1.594v.001a1.468 1.468 0 00.03 1.912c.242.265.495.519.758.758.534.487 1.352.488 1.911.03a1.464 1.464 0 011.595-.173c.425.217.868.401 1.327.552.552.18.943.67 1 1.247.07.718.649 1.294 1.368 1.33.357.017.714.018 1.073.002.723-.033 1.306-.61 1.377-1.33v-.002a1.46 1.46 0 011-1.247c.458-.15.903-.335 1.327-.552a1.464 1.464 0 011.594.172v.001c.558.458 1.378.455 1.912-.032.265-.24.519-.493.76-.757.485-.534.487-1.353.028-1.911a1.466 1.466 0 01-.173-1.595c.217-.425.403-.868.552-1.328a1.46 1.46 0 011.248-1c.717-.069 1.294-.648 1.33-1.368.017-.356.018-.713.001-1.071a1.466 1.466 0 00-1.33-1.377'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.jw-icon-settings:hover .jw-svg-icon-settings,
+.jw-settings-open .jw-svg-icon-settings {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Cpath fill='%23FFFFFF' fill-rule='evenodd' d='M12 16.68a4.68 4.68 0 110-9.36 4.68 4.68 0 110 9.36m10.158-6.588l-.001-.001a1.461 1.461 0 01-1.248-1 9.208 9.208 0 00-.552-1.327 1.466 1.466 0 01.173-1.594c.459-.559.455-1.378-.03-1.913a11.354 11.354 0 00-.758-.758c-.534-.486-1.353-.488-1.91-.03h-.002a1.466 1.466 0 01-1.594.174 9.293 9.293 0 00-1.327-.553 1.46 1.46 0 01-1-1.246c-.071-.718-.648-1.295-1.369-1.33-.355-.017-.713-.02-1.072-.002-.722.031-1.306.61-1.377 1.33v.002a1.462 1.462 0 01-1 1.246c-.458.15-.902.336-1.327.553a1.465 1.465 0 01-1.594-.174c-.56-.458-1.377-.455-1.913.031-.265.242-.518.495-.758.758-.486.534-.488 1.352-.03 1.911v.001c.37.45.438 1.074.173 1.594a9.205 9.205 0 00-.551 1.328c-.18.55-.67.942-1.248.999-.717.07-1.294.65-1.33 1.369-.017.356-.017.713-.002 1.072.033.723.61 1.306 1.33 1.377h.002a1.463 1.463 0 011.248 1c.15.459.335.902.551 1.327a1.463 1.463 0 01-.172 1.594v.001a1.468 1.468 0 00.03 1.912c.242.265.495.519.758.758.534.487 1.352.488 1.911.03a1.464 1.464 0 011.595-.173c.425.217.868.401 1.327.552.552.18.943.67 1 1.247.07.718.649 1.294 1.368 1.33.357.017.714.018 1.073.002.723-.033 1.306-.61 1.377-1.33v-.002a1.46 1.46 0 011-1.247c.458-.15.903-.335 1.327-.552a1.464 1.464 0 011.594.172v.001c.558.458 1.378.455 1.912-.032.265-.24.519-.493.76-.757.485-.534.487-1.353.028-1.911a1.466 1.466 0 01-.173-1.595c.217-.425.403-.868.552-1.328a1.46 1.46 0 011.248-1c.717-.069 1.294-.648 1.33-1.368.017-.356.018-.713.001-1.071a1.466 1.466 0 00-1.33-1.377'/%3E%3C/svg%3E");
+}
+
+.jw-svg-icon-fullscreen-on path {
+    display: none;
+}
+
+.jw-svg-icon-fullscreen-on {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Cpath fill='%23FFFFFF' d='M4.981 20.654h5.381c.595 0 1.077.482 1.077 1.077v.158c0 .595-.482 1.077-1.077 1.077H2.455a1.08 1.08 0 01-.716-.066 1.08 1.08 0 01-.639-.639 1.08 1.08 0 01-.066-.716v-7.907c0-.595.482-1.077 1.077-1.077h.158c.595 0 1.077.482 1.077 1.077v5.38l5.44-5.439c.42-.42 1.103-.42 1.523 0l.112.112c.42.42.42 1.102 0 1.523l-5.44 5.44zM19.02 3.346h-5.381A1.077 1.077 0 0112.56 2.27v-.158c0-.595.482-1.077 1.077-1.077h7.907c.238-.06.491-.038.716.066.295.11.53.344.639.639.104.225.126.478.066.716v7.907c0 .595-.482 1.077-1.077 1.077h-.158a1.077 1.077 0 01-1.077-1.077v-5.38l-5.44 5.439c-.42.42-1.103.42-1.523 0l-.112-.112a1.077 1.077 0 010-1.523l5.44-5.44z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.jw-icon-fullscreen:hover .jw-svg-icon-fullscreen-on {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Cpath fill='%23FFFFFF' d='M4.981 20.654h5.381c.595 0 1.077.482 1.077 1.077v.158c0 .595-.482 1.077-1.077 1.077H2.455a1.08 1.08 0 01-.716-.066 1.08 1.08 0 01-.639-.639 1.08 1.08 0 01-.066-.716v-7.907c0-.595.482-1.077 1.077-1.077h.158c.595 0 1.077.482 1.077 1.077v5.38l5.44-5.439c.42-.42 1.103-.42 1.523 0l.112.112c.42.42.42 1.102 0 1.523l-5.44 5.44zM19.02 3.346h-5.381A1.077 1.077 0 0112.56 2.27v-.158c0-.595.482-1.077 1.077-1.077h7.907c.238-.06.491-.038.716.066.295.11.53.344.639.639.104.225.126.478.066.716v7.907c0 .595-.482 1.077-1.077 1.077h-.158a1.077 1.077 0 01-1.077-1.077v-5.38l-5.44 5.439c-.42.42-1.103.42-1.523 0l-.112-.112a1.077 1.077 0 010-1.523l5.44-5.44z'/%3E%3C/svg%3E");
+}
+
+.jw-svg-icon-fullscreen-off path {
+    display: none;
+}
+
+.jw-svg-icon-fullscreen-off {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Cpath fill='%23FFFFFF' d='M6.847 15.546h-5.27A1.077 1.077 0 01.5 14.47v-.119c0-.595.482-1.077 1.077-1.077H9.36a1.08 1.08 0 01.671.07c.288.109.516.337.625.625.095.211.118.447.07.67v7.784c0 .595-.482 1.077-1.077 1.077H9.53a1.077 1.077 0 01-1.076-1.077v-5.27L3.12 22.486a1.076 1.076 0 01-1.523 0l-.083-.083a1.077 1.077 0 010-1.523l5.333-5.334zm10.306-7.092h5.27c.595 0 1.077.482 1.077 1.076v.119c0 .595-.482 1.077-1.077 1.077H14.64a1.08 1.08 0 01-.671-.07 1.08 1.08 0 01-.625-.625 1.08 1.08 0 01-.07-.67V1.576c0-.595.482-1.077 1.077-1.077h.119c.594 0 1.076.482 1.076 1.077v5.27l5.334-5.333a1.076 1.076 0 011.523 0l.083.083a1.076 1.076 0 010 1.523l-5.333 5.334z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.jw-icon-fullscreen:hover .jw-svg-icon-fullscreen-off {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Cpath fill='%23FFFFFF' d='M6.847 15.546h-5.27A1.077 1.077 0 01.5 14.47v-.119c0-.595.482-1.077 1.077-1.077H9.36a1.08 1.08 0 01.671.07c.288.109.516.337.625.625.095.211.118.447.07.67v7.784c0 .595-.482 1.077-1.077 1.077H9.53a1.077 1.077 0 01-1.076-1.077v-5.27L3.12 22.486a1.076 1.076 0 01-1.523 0l-.083-.083a1.077 1.077 0 010-1.523l5.333-5.334zm10.306-7.092h5.27c.595 0 1.077.482 1.077 1.076v.119c0 .595-.482 1.077-1.077 1.077H14.64a1.08 1.08 0 01-.671-.07 1.08 1.08 0 01-.625-.625 1.08 1.08 0 01-.07-.67V1.576c0-.595.482-1.077 1.077-1.077h.119c.594 0 1.076.482 1.076 1.077v5.27l5.334-5.333a1.076 1.076 0 011.523 0l.083.083a1.076 1.076 0 010 1.523l-5.333 5.334z'/%3E%3C/svg%3E");
+}
+
+.jw-icon-playback .jw-svg-icon-pause,
+.jw-icon-playback .jw-svg-icon-play,
+.jw-svg-icon-settings {
+    max-height: 21px !important;
+    max-width: 21px !important;
+}
+
+.jw-svg-icon-fullscreen-off,
+.jw-svg-icon-fullscreen-on {
+    max-height: 20px !important;
+    max-width: 20px !important;
+}
+
+.jw-breakpoint-7 .jw-icon-playback .jw-svg-icon-pause,
+.jw-breakpoint-7 .jw-icon-playback .jw-svg-icon-play,
+.jw-breakpoint-7 .jw-svg-icon-settings {
+    max-height: 25px !important;
+    max-width: 25px !important;
+}
+
+.jw-breakpoint-7 .jw-svg-icon-fullscreen-off,
+.jw-breakpoint-7 .jw-svg-icon-fullscreen-on {
+    max-height: 22px !important;
+    max-width: 22px !important;
+}
+
+.jw-breakpoint-1:not(.jw-flag-audio-player) .jw-slider-time {
+    padding: 0 12px !important;
+}
+
+.jw-breakpoint--1:not(.jw-flag-audio-player) .jw-slider-time {
+    height: auto !important;
+    padding: 0 !important;
+}
+
+.jw-breakpoint--1:not(.jw-flag-audio-player) .jw-slider-time .jw-slider-container {
+    margin: 0 !important;
+}
+
+.jwplayer.jw-breakpoint-1:not(.jw-flag-ads):not(.jw-flag-audio-player) .jw-button-container,
+.jwplayer.jw-breakpoint--1:not(.jw-flag-ads):not(.jw-flag-audio-player) .jw-button-container {
+    padding: 0 !important;
+}
+
+.jw-flag-small-player:not(.jw-flag-audio-player):not(.jw-flag-ads) .jw-controlbar .jw-button-container>.jw-icon-playback {
+    display: flex !important;
+}
+
+.jwplayer.jw-breakpoint--1:not(.jw-flag-audio-player):not(.jw-flag-ads) .jw-controlbar .jw-button-container>.jw-icon-playback {
+    bottom: 6px !important;
+}
+
+.jw-breakpoint-1 .jw-icon[button="rewind"],
+.jw-breakpoint-1 .jw-icon[button="forward"],
+.jw-breakpoint--1 .jw-icon[button="rewind"],
+.jw-breakpoint--1 .jw-icon[button="forward"]{
+    display: none !important;
+}
+  
+   
+   
+
+.jw-sharing-link:active,
+.jw-sharing-copy:active.jw-sharing-link:hover,
+.jw-button-color.jw-toggle.jw-off:active:not(.jw-icon-cast),
+.jw-button-color.jw-toggle.jw-off:focus:not(.jw-icon-cast),
+.jw-button-color.jw-toggle.jw-off:hover:not(.jw-icon-cast),
+.jw-button-color.jw-toggle:not(.jw-icon-cast),
+.jw-button-color:active:not(.jw-icon-cast),
+.jw-button-color:focus:not(.jw-icon-cast),
+.jw-button-color:hover:not(.jw-icon-cast),
+.jw-button-color[aria-expanded=true]:not(.jw-icon-cast),
+.jw-settings-content-item.jw-settings-item-active,
+.jw-settings-menu .jw-icon.jw-button-color[aria-checked="true"] .jw-svg-icon {
+    fill: #FFFFFF !important;
+    color: #FFFFFF !important;
     background-color: transparent !important;
 }
 
@@ -228,7 +331,7 @@ body {
 
 .jw-volume-tip {
     padding: 1em 0 !important;
-    background: #262626 !important;
+    background: #151918  !important;
     border-radius: 0.3em;
     max-width: 2.2em;
     margin: 0 auto !important;
@@ -302,11 +405,6 @@ body {
 .jw-breakpoint--1 .jw-icon[button="forward"] {
     display: none !important;
 }
-</style>
-  
-  
-  
-<style type="text/css">
 body {
 }
 .jw-button-color {
@@ -324,7 +422,10 @@ body {
 .jw-reset-text{
     color: white !important;
 }
-</style>
+  </style>
+  
+
+
 <head>
 <meta charset="utf-8">
 <meta name="referrer" content="no-referrer">
@@ -357,37 +458,37 @@ body {
         var ConfiguracionCanales = {
       //DEPORTSS
          "espn1": {
-                url: "//edge01-cde-py.cvattv.com.ar/live/c3eds/ESPN2HD/SA_Live_dash_enc_wl/ESPN2HD.mpd",
+                url: "//edge-mix04-coe.cvattv.com.ar/live/c3eds/ESPN2HD/SA_Live_dash_enc_wl/ESPN2HD.mpd",
                 k1: "e884b711ab111beb8a7ba1e7bcbdc9bf",
                 k2: "cb89ee3961599e3e648a5aad60895f34"
             },
             "espn2": {
-                url: "//edge01-cde-py.cvattv.com.ar/live/c6eds/ESPN2_Arg/SA_Live_dash_enc_wl/ESPN2_Arg.mpd",
+                url: "//edge-mix04-coe.cvattv.com.ar/live/c6eds/ESPN2_Arg/SA_Live_dash_enc_wl/ESPN2_Arg.mpd",
                 k1: "65a5bfa3c7a72dde60be9b0c7406c8fc",
                 k2: "0b40ae9f78a7bac3b57ecbf72d3c081e"
             },
             "espn3": {
-                url: "//edge01-cde-py.cvattv.com.ar/live/c3eds/ESPN3/SA_Live_dash_enc_wl/ESPN3.mpd",
+                url: "//edge-mix04-coe.cvattv.com.ar/live/c3eds/ESPN3/SA_Live_dash_enc_wl/ESPN3.mpd",
                 k1: "f4c9f97e2a36feab0e5077f2b44cbc4e",
                 k2: "1743cd03dfe3736b2c95da91a783af38"
             },
             "espnextra": {
-                url: "//edge01-cde-py.cvattv.com.ar/live/c3eds/ESPNHD/SA_Live_dash_enc_wl/ESPNHD.mpd",
+                url: "//edge-mix04-coe.cvattv.com.ar/live/c3eds/ESPNHD/SA_Live_dash_enc_wl/ESPNHD.mpd",
                 k1: "cc8d44406ed6bf1898ad9f7a2d64f29e",
                 k2: "fb85d059687ab0fc67805806204edbdf"
             },
             "espnprem": {
-                url: "//edge01-cde-py.cvattv.com.ar/live/c7eds/Fox_Sports_Premiun_HD/SA_Live_dash_enc_wl/Fox_Sports_Premiun_HD.mpd",
+                url: "//edge-mix04-coe.cvattv.com.ar/live/c7eds/Fox_Sports_Premiun_HD/SA_Live_dash_enc_wl/Fox_Sports_Premiun_HD.mpd",
                 k1: "4c230dbc7f6a4bfa6ad0aa73ff792374",
                 k2: "4186a7c2a15f590a9399886feaec4257"
             },
             "tntsportsaargeen": {
-                url: "//edge01-cde-py.cvattv.com.ar/live/c6eds/TNT_Sports_HD/SA_Live_dash_enc_wl/TNT_Sports_HD.mpd",
+                url: "//edge-mix04-coe.cvattv.com.ar/live/c6eds/TNT_Sports_HD/SA_Live_dash_enc_wl/TNT_Sports_HD.mpd",
                 k1: "bc80fa3da696e503f940fde5f681a1c5",
                 k2: "ea46e4e9f1132e8dd71fb77f7d55058a"
             },
             "foxsports1": {
-                url: "//edge01-cde-py.cvattv.com.ar/live/c3eds/FoxSports/SA_Live_dash_enc_wl/FoxSports.mpd",
+                url: "//edge-mix04-coe.cvattv.com.ar/live/c3eds/FoxSports/SA_Live_dash_enc_wl/FoxSports.mpd",
                 k1: "cbc2a0c7a38df0aa3333cd71841d3b0d",
                 k2: "aac61b730e2ac1df23f1e872e7541c1b"
             },
@@ -397,268 +498,268 @@ body {
                 k2: "5086d370e840010232cf4532b16e197f"
             },
             "foxsports3": {
-                url: "//edge01-cde-py.cvattv.com.ar/live/c3eds/FoxSports3HD/SA_Live_dash_enc_wl/FoxSports3HD.mpd",
+                url: "//edge-mix04-coe.cvattv.com.ar/live/c3eds/FoxSports3HD/SA_Live_dash_enc_wl/FoxSports3HD.mpd",
                 k1: "55b47390cf9e4997dae6dac85e057875",
                 k2:"fa39e855543c5d70f30600d59e5e4c1b"
             },
             "tyc": {
-                url: "//edge01-cde-py.cvattv.com.ar/live/c7eds/TyCSport/SA_Live_dash_enc_wl/TyCSport.mpd",
+                url: "//edge-mix04-coe.cvattv.com.ar/live/c7eds/TyCSport/SA_Live_dash_enc_wl/TyCSport.mpd",
                 k1: "2b21c8fa9a329cce311a4c4a4aa996a1",
                 k2: "cc23ea1fb32629f9e1f48c8deeae3e5b"
             },
             "tycinternacional": {
-                url: "//edge01-cde-py.cvattv.com.ar/live/c3eds/TyC_Internacional/SA_Live_dash_enc_wl/TyC_Internacional.mpd",
+                url: "//edge-mix04-coe.cvattv.com.ar/live/c3eds/TyC_Internacional/SA_Live_dash_enc_wl/TyC_Internacional.mpd",
                 k1: "58e1ebe75d944f6a98ea67b1c7c0a572",
                 k2: "1c311b069dbce31ce8e62a6e7e2433eb"
             },
             "deportv": {
-                url: "//edge01-cde-py.cvattv.com.ar/live/c3eds/DeporTVHD/SA_Live_dash_enc_wl/DeporTVHD.mpd",
+                url: "//edge-mix04-coe.cvattv.com.ar/live/c3eds/DeporTVHD/SA_Live_dash_enc_wl/DeporTVHD.mpd",
                 k1: "f362097815892a4b83950f1d106ff0b2",
                 k2: "4349e42e81c31a8389f4a42fcd298928"
             },
             "amerisp": {
-                url: "//edge01-cde-py.cvattv.com.ar/live/c6eds/America_Sports/SA_Live_dash_enc_wl/America_Sports.mpd",
+                url: "//edge-mix04-coe.cvattv.com.ar/live/c6eds/America_Sports/SA_Live_dash_enc_wl/America_Sports.mpd",
                 k1: atob("YTBhYTAxMzM3YTIxNDhiZGExZTIxODYyMjk1YWUwMzc="),
                 k2: atob("ZmVlMGY4N2EwNTI3NDk3MzUxZmM1NGNlMzZhZDFkZTI=")
             },
             "goolffteve": {
-                url: "//edge01-cde-py.cvattv.com.ar/live/c6eds/Golf_Channel/SA_Live_dash_enc_wl/Golf_Channel.mpd",
+                url: "//edge-mix04-coe.cvattv.com.ar/live/c6eds/Golf_Channel/SA_Live_dash_enc_wl/Golf_Channel.mpd",
                 k1: atob("MzhkNjIyNmI3Y2QyY2ZhODZiNGI5Y2RhYTQ1NWU3ZDc="),
                 k2: atob("MjRmMGVmMmJmNzg3NjQ3Y2MwMmRmODcwNDE3ZWVkMmI=")
             },
             "enebeeaateve": {
-                url: "//edge01-cde-py.cvattv.com.ar/live/c6eds/NBA_TV/SA_Live_dash_enc_2A_wl/NBA_TV.mpd",
+                url: "//edge-mix04-coe.cvattv.com.ar/live/c6eds/NBA_TV/SA_Live_dash_enc_2A_wl/NBA_TV.mpd",
                 k1: "d0c38de3c9844e4e9f975dffb3eff8ad",
                 k2: "141ca0fdf6ebadfa7107576b8e09e117"
             },
             "veeteve1": {
-                url: "//edge01-cde-py.cvattv.com.ar/live/c3eds/VTV_HD/SA_Live_dash_enc_wl/VTV_HD.mpd",
+                url: "//edge-mix04-coe.cvattv.com.ar/live/c3eds/VTV_HD/SA_Live_dash_enc_wl/VTV_HD.mpd",
                 k1: "b96960aa715a4e51b7e952e81c99ac8e",
                 k2: "5bbffc680764dbd63d90b774b3aa0c0a"
             },
             "veeteve2": {
-                url: "//edge01-cde-py.cvattv.com.ar/live/c3eds/VTV_Plus_HD/SA_Live_dash_enc_wl/VTV_Plus_HD.mpd",
+                url: "//edge-mix04-coe.cvattv.com.ar/live/c3eds/VTV_Plus_HD/SA_Live_dash_enc_wl/VTV_Plus_HD.mpd",
                 k1: "da8a49a594160cc0059f07b9f71cd39a",
                 k2: "37ca91dd799b351a02445151c7f61070"
             },
             "garateve": {
-                url: "//edge01-cde-py.cvattv.com.ar/live/c6eds/El_Garage/SA_Live_dash_enc_wl/El_Garage.mpd",
+                url: "//edge-mix04-coe.cvattv.com.ar/live/c6eds/El_Garage/SA_Live_dash_enc_wl/El_Garage.mpd",
                 k1: "03d1dfb8df034d8b81e57753df00a36d",
                 k2: "08d83660db4a73bb1d61d60b09df5f4d" 
             },
             "dissctuubooo": {
-                url: "//edge01-cde-py.cvattv.com.ar/live/c7eds/DiscoveryTurbo/SA_Live_dash_enc_2A_wl/DiscoveryTurbo.mpd",
+                url: "//edge-mix04-coe.cvattv.com.ar/live/c7eds/DiscoveryTurbo/SA_Live_dash_enc_2A_wl/DiscoveryTurbo.mpd",
                 k1: "a611ddbf8c15fa617a0c391cb7b3e128",
                 k2: "0cd1300baf8890380fd41124962195c4"
             },
              "espe5": {
-                url: "//edge01-cde-py.cvattv.com.ar/live/c7eds/ESPN4/SA_Live_dash_enc_wl/ESPN4.mpd",
+                url: "//edge-mix04-coe.cvattv.com.ar/live/c7eds/ESPN4/SA_Live_dash_enc_wl/ESPN4.mpd",
                 k1: "24f2b3e741f0d9e9a8d516faff38bddc",
                 k2: "bbd3fd02fb104e1463ac528a13f67e4a"
             },
           "espe6": {
-                url: "//edge01-cde-py.cvattv.com.ar/live/c7eds/FoxSports3_UY/SA_Live_dash_enc_wl/FoxSports3_UY.mpd",
+                url: "//edge-mix04-coe.cvattv.com.ar/live/c7eds/FoxSports3_UY/SA_Live_dash_enc_wl/FoxSports3_UY.mpd",
                 k1: "5fc7b662e69c0fbf8d39691166b1c919",
                 k2: "89157cdd25df25d56f1ecccee3850888"
             },
           "espe7": {
-                url: "//edge01-cde-py.cvattv.com.ar/live/c7eds/FoxSports2_UY/SA_Live_dash_enc_wl/FoxSports2_UY.mpd",
+                url: "//edge-mix04-coe.cvattv.com.ar/live/c7eds/FoxSports2_UY/SA_Live_dash_enc_wl/FoxSports2_UY.mpd",
                 k1: "5fc7b662e69c0fbf8d39691166b1c919",
                 k2: "89157cdd25df25d56f1ecccee3850888"
             },
         "evenuy": {
-                url: "//edge01-cde-py.cvattv.com.ar/live/c7eds/Eventos_HD_Uy/SA_Live_dash_enc_wl/Eventos_HD_Uy.mpd",
+                url: "//edge-mix04-coe.cvattv.com.ar/live/c7eds/Eventos_HD_Uy/SA_Live_dash_enc_wl/Eventos_HD_Uy.mpd",
                 k1: "48d0e34c8797c5c2a742d2630a8fb975",
                 k2: "fb5d12b9d8febe836e5670abd003ddca"
             },
      //CINE SERIES
            "hhhb1": {
-                url: "//edge01-fdo-py.cvattv.com.ar/live/c4eds/HBOHD/SA_Live_dash_enc_wl/HBOHD.mpd",
+                url: "//edge-mix01-cte.cvattv.com.ar/live/c4eds/HBOHD/SA_Live_dash_enc_wl/HBOHD.mpd",
                 k1: "5317283f4110fac3fb3a0becd9f648bc" ,
                 k2: "0754a03c926b1247216e01d9dbcfac28"
             },
             "tnt": {
-                url: "//edge01-fdo-py.cvattv.com.ar/live/c3eds/TNT_HD_Arg/SA_Live_dash_enc_wl/TNT_HD_Arg.mpd",
+                url: "//edge-mix01-bua.cvattv.com.ar/live/c3eds/TNT_HD_Arg/SA_Live_dash_enc_wl/TNT_HD_Arg.mpd",
                 k1: "faad1722a575f4d9ec7b774db63c879c",
                 k2: "cf0184830344ba36ad2ffef9dd2dd9d0"
             },
             "tntseries": {
-                url: "//edge01-fdo-py.cvattv.com.ar/live/c3eds/TNTSeries/SA_Live_dash_enc_wl/TNTSeries.mpd",
+                url: "//edge-mix01-bua.cvattv.com.ar/live/c3eds/TNTSeries/SA_Live_dash_enc_wl/TNTSeries.mpd",
                 k1: "5c14d6aeb19bf113edf91a7b544253cb",
                 k2: "8d776d6f9c5c840ebe88d767dd731692"
             },
             "tntnovels": {
-                url: "//edge01-fdo-py.cvattv.com.ar/live/c6eds/TBS/SA_Live_dash_enc_2A_wl/TBS.mpd",
+                url: "//edge-mix01-bua.cvattv.com.ar/live/c6eds/TBS/SA_Live_dash_enc_2A_wl/TBS.mpd",
                 k1: "49a0179b034ae899cb67d8a5834181aa",
                 k2: "486e2c6d69adea7e17f2960e8e366612"
             },
             "space": {
-                url: "//edge01-fdo-py.cvattv.com.ar/live/c3eds/Space/SA_Live_dash_enc_wl/Space.mpd",
+                url: "//edge-mix01-bua.cvattv.com.ar/live/c3eds/Space/SA_Live_dash_enc_wl/Space.mpd",
                 k1: "0942e4ecd1bd3567e8f9447f45c20a12",
                 k2: "efca6264f04cf7373de0c30ec79fe909"
             },
           "studiouniversal": {
-                url: "//edge01-fdo-py.cvattv.com.ar/live/c6eds/Studio_Universal/SA_Live_dash_enc_wl/Studio_Universal.mpd",
+                url: "//edge-mix01-bua.cvattv.com.ar/live/c6eds/Studio_Universal/SA_Live_dash_enc_wl/Studio_Universal.mpd",
                 k1: "d9b541e3cd064d569843da42788d4263",
                 k2: "bba5d26ad5051fb3f2cf7e3dd8a4a7d8"
             },
            "amc": {
-                url: "//edge01-fdo-py.cvattv.com.ar/live/c3eds/AMC/SA_Live_dash_enc_wl/AMC.mpd",
+                url: "//edge-mix01-bua.cvattv.com.ar/live/c3eds/AMC/SA_Live_dash_enc_wl/AMC.mpd",
                 k1: "1fa6a86fd80b6d1425dde74482b5dc9c",
                 k2: "744c3636d57a651ab444cf9fe5f95b33"
             },
             "axn": {
-                url: "//edge01-fdo-py.cvattv.com.ar/live/c7eds/AXNHD/SA_Live_dash_enc_wl/AXNHD.mpd",
+                url: "//edge-mix01-bua.cvattv.com.ar/live/c7eds/AXNHD/SA_Live_dash_enc_wl/AXNHD.mpd",
                 k1: "03e77b5bbf5135a85d587c5af2f2f730",
                 k2: "1dd1ab1938a791d03f09eb88478b4880"
             },
             "cinear": {
-                url: "//edge01-fdo-py.cvattv.com.ar/live/c6eds/INCAA_Tv/SA_Live_dash_enc_wl/INCAA_Tv.mpd",
+                url: "//edge-mix01-bua.cvattv.com.ar/live/c6eds/INCAA_Tv/SA_Live_dash_enc_wl/INCAA_Tv.mpd",
                 k1: "d44f40e49d2945c1a3701c0885ff0b00",
                 k2: "6382b6279087402714b6824688c456df"
             },
             "cinecanal": {
-                url: "//edge01-fdo-py.cvattv.com.ar/live/c3eds/CinecanalHD/SA_Live_dash_enc_wl/CinecanalHD.mpd",
+                url: "//edge-mix01-bua.cvattv.com.ar/live/c3eds/CinecanalHD/SA_Live_dash_enc_wl/CinecanalHD.mpd",
                 k1:"6003e92dd0d9f548329015c9e15dd578",
                 k2: "213cf85cb5f9fe569757004a77e05948"
             },
             "cinemax": {
-                url: "//edge01-fdo-py.cvattv.com.ar/live/c6eds/Cinemax/SA_Live_dash_enc_wl/Cinemax.mpd",
+                url: "//edge-mix01-bua.cvattv.com.ar/live/c6eds/Cinemax/SA_Live_dash_enc_wl/Cinemax.mpd",
                 k1: "977928a92b82ba3781741a6470f8f45b",
                 k2: "51f4e62827c128f7210b79a11587661a"
             },
             "comedycentral": {
-                url: "//edge01-fdo-py.cvattv.com.ar/live/c7eds/ComedyCentral/SA_Live_dash_enc_wl/ComedyCentral.mpd",
+                url: "//edge-mix01-bua.cvattv.com.ar/live/c7eds/ComedyCentral/SA_Live_dash_enc_wl/ComedyCentral.mpd",
                 k1: "4013f784c5ef4318ad47024e61eb094e",
                 k2: "bad433a547f97c7f65cda5e83b8dd416"
             },
             "fx": {
-                url: "//edge01-fdo-py.cvattv.com.ar/live/c3eds/FXHD/SA_Live_dash_enc_wl/FXHD.mpd",
+                url: "//edge-mix01-bua.cvattv.com.ar/live/c3eds/FXHD/SA_Live_dash_enc_wl/FXHD.mpd",
                 k1: "9ab9c42c713e0fb5517dc77cc19d6755",
                 k2: "d8c271b82387e609b6c19e5e79240aff"
             },
             "hbo2": {
-                url: "//edge01-fdo-py.cvattv.com.ar/live/c6eds/HBO_2/SA_Live_dash_enc_wl/HBO_2.mpd",
+                url: "//edge-mix01-bua.cvattv.com.ar/live/c6eds/HBO_2/SA_Live_dash_enc_wl/HBO_2.mpd",
                 k1: "c90cc57ad2c436e5a77db2f8d9db2d85",
                 k2: "04f6c73984bdcffd013050608497935d"
             },
             "hboplus": {
-                url: "//edge01-fdo-py.cvattv.com.ar/live/c6eds/HBO_Plus/SA_Live_dash_enc_2A_wl/HBO_Plus.mpd",
+                url: "//edge-mix01-bua.cvattv.com.ar/live/c6eds/HBO_Plus/SA_Live_dash_enc_2A_wl/HBO_Plus.mpd",
                 k1: "f0e7f7d458990edfab7b98b412564615",
                 k2: "79205754b7f84a62661c2dbe9de5dd5d"
             }, 
           "hbofami": {
-                url: "//edge01-fdo-py.cvattv.com.ar/live/c6eds/HBO_Family/SA_Live_dash_enc_wl/HBO_Family.mpd",
+                url: "//edge-mix01-bua.cvattv.com.ar/live/c6eds/HBO_Family/SA_Live_dash_enc_wl/HBO_Family.mpd",
                 k1: "535473132f68082160b489482ca35f8e",
                 k2: "e90fd91fcd3fc809bed2b1c0d37f7297"
             },
             "hbomund": {
-                url: "//edge01-fdo-py.cvattv.com.ar/live/c6eds/HBO_Mundi/SA_Live_dash_enc_2A_wl/HBO_Mundi.mpd",
+                url: "//edge-mix01-bua.cvattv.com.ar/live/c6eds/HBO_Mundi/SA_Live_dash_enc_2A_wl/HBO_Mundi.mpd",
                 k1: "7821b2662148fe333d5191acbb8a5c1f",
                 k2:  "ae43f3e2545237ebda58b13813b5d328"
             },
             "hbosign": {
-                url: "//edge01-fdo-py.cvattv.com.ar/live/c6eds/HBO_Signature/SA_Live_dash_enc_wl/HBO_Signature.mpd",
+                url: "//edge-mix01-bua.cvattv.com.ar/live/c6eds/HBO_Signature/SA_Live_dash_enc_wl/HBO_Signature.mpd",
                 k1: "e866499fbc1149f49989672075aa3a68",
                 k2: "d2dd5c95623c6343240981c2202fc311"
             },
             "hbopoo": {
-                url: "//edge01-fdo-py.cvattv.com.ar/live/c7eds/HBO_POP/SA_Live_dash_enc_wl/HBO_POP.mpd",
+                url: "//edge-mix01-bua.cvattv.com.ar/live/c7eds/HBO_POP/SA_Live_dash_enc_wl/HBO_POP.mpd",
                 k1: "f4e1ce5cef7e9a110fe968f8881b21fa",
                 k2: "6bbe2062b150b11496cdd5fbdd9c89d6"
             },
             "hboextr": {
-                url: "//edge01-fdo-py.cvattv.com.ar/live/c6eds/HBO_Extreme/SA_Live_dash_enc_2A_wl/HBO_Extreme.mpd",
+                url: "//edge-mix01-bua.cvattv.com.ar/live/c6eds/HBO_Extreme/SA_Live_dash_enc_2A_wl/HBO_Extreme.mpd",
                 k1: "d504011bbef467c0de3a7534e302a6d4",
                 k2: "334103e2abe16faa7f9ab2e3097c5a58"
             },
             "ac3pel": {
-                url: "//edge01-fdo-py.cvattv.com.ar/live/c7eds/A3_Cine/SA_Live_dash_enc_wl/A3_Cine.mpd",
+                url: "//edge-mix01-bua.cvattv.com.ar/live/c7eds/A3_Cine/SA_Live_dash_enc_wl/A3_Cine.mpd",
                 k1: "d6ff881a6f07986a80d6ad6f041b57d4",
                 k2: "b401c87c2ab11a1a488ee1c474b109ae"
             },
             "ac3seri": {
-                url: "//edge01-fdo-py.cvattv.com.ar/live/c7eds/A3_Series/SA_Live_dash_enc_wl/A3_Series.mpd",
+                url: "//edge-mix01-bua.cvattv.com.ar/live/c7eds/A3_Series/SA_Live_dash_enc_wl/A3_Series.mpd",
                 k1: atob("NWUzNGUwOGFlNWFlNDQwZjAxYTAzZTUwNWRkMjRhNTc="),
                 k2: atob("ZWQzMGNjN2Y1MDQwYTc1ZDczZjYxOTMyMDI0OTI3MmI=")
             },
             "dreamwoor": {
-                url: "//edge01-fdo-py.cvattv.com.ar/live/c7eds/Dreamworks/SA_Live_dash_enc_wl/Dreamworks.mpd",
+                url: "//edge-mix01-bua.cvattv.com.ar/live/c7eds/Dreamworks/SA_Live_dash_enc_wl/Dreamworks.mpd",
                 k1: "7f30c43e47544412221fd64201d92f4b",
                 k2: "f83d09d75a0946b1d71aa48c201b4d8b"
             },
             "aaye": {
-                url: "//edge01-fdo-py.cvattv.com.ar/live/c7eds/AEHD/SA_Live_dash_enc_wl/AEHD.mpd",
+                url: "//edge-mix01-bua.cvattv.com.ar/live/c7eds/AEHD/SA_Live_dash_enc_wl/AEHD.mpd",
                 k1: "db12035627a4b3d7198b761f36b4a290",
                 k2: "80ca761a875992ac0e50b0851d5563fe"
             },
             "lifetime": {
-                url: "//edge01-fdo-py.cvattv.com.ar/live/c6eds/Lifetime/SA_Live_dash_enc_wl/Lifetime.mpd",
+                url: "//edge-mix01-bua.cvattv.com.ar/live/c6eds/Lifetime/SA_Live_dash_enc_wl/Lifetime.mpd",
                 k1: "eae51b1d67ff47adac7b6bd3a4b1120a",
                 k2: "b4d6bb47193f33ffc12379cdc447455d"
             },
             "maschic": {
-                url: "//edge01-fdo-py.cvattv.com.ar/live/c6eds/Mas_Chic/SA_Live_dash_enc_wl/Mas_Chic.mpd",
+                url: "//edge-mix01-bua.cvattv.com.ar/live/c6eds/Mas_Chic/SA_Live_dash_enc_wl/Mas_Chic.mpd",
                 k1: "dac8ff1688994efd898222acdd05cafc",
                 k2: "22fdf97c7233667518258ed16ccb2545"
             },
             "paramount": {
-                url: "//edge01-fdo-py.cvattv.com.ar/live/c7eds/Paramount/SA_Live_dash_enc_wl/Paramount.mpd",
+                url: "//edge-mix01-bua.cvattv.com.ar/live/c7eds/Paramount/SA_Live_dash_enc_wl/Paramount.mpd",
                 k1: "b85b710ecff3e38f31fc8e249b1c1cef",
                 k2: "a1544c193dde6f8858c9358ee69a60a7"
             },
             "sony": {
-                url: "//edge01-fdo-py.cvattv.com.ar/live/c7eds/SonyHD/SA_Live_dash_enc_2A_wl/SonyHD.mpd",
+                url: "//edge-mix01-bua.cvattv.com.ar/live/c7eds/SonyHD/SA_Live_dash_enc_2A_wl/SonyHD.mpd",
                 k1: "fd9619f9d7c2d5115a339941279e0b4b",
                 k2: "bf55635e6591f905659fa27ab3ca2812"
             },
             "starchannel": {
-                url: "//edge01-fdo-py.cvattv.com.ar/live/c3eds/FOXHD/SA_Live_dash_enc_wl/FOXHD.mpd",
+                url: "//edge-mix01-bua.cvattv.com.ar/live/c3eds/FOXHD/SA_Live_dash_enc_wl/FOXHD.mpd",
                 k1: "8023e85ef9d17561ee1b424179b1b15e",
                 k2:  "477ad189f1fcd2baec026068107f862f"
             },
             "tcm": {
-                url: "//edge01-fdo-py.cvattv.com.ar/live/c6eds/TCM/SA_Live_dash_enc_2A_wl/TCM.mpd",
+                url: "//edge-mix01-bua.cvattv.com.ar/live/c6eds/TCM/SA_Live_dash_enc_2A_wl/TCM.mpd",
                 k1: "a5f44a5e30714cf3bcee7c7f15a08b4e",
                 k2: "c3c141ae941ab9750339c3af45a65ce2"
             },
             "universalchannel": {
-                url: "//edge01-fdo-py.cvattv.com.ar/live/c6eds/Universal_Channel_HD/SA_Live_dash_enc_wl/Universal_Channel_HD.mpd",
+                url: "//edge-mix01-bua.cvattv.com.ar/live/c6eds/Universal_Channel_HD/SA_Live_dash_enc_wl/Universal_Channel_HD.mpd",
                 k1: "6cf9a13d6fd65a0f2e1cee3969aab9f5",
                 k2: "ea61c3c1adee71b5c2e9744e41d4b75f"
             },
             "volver": {
-                url: "//edge01-fdo-py.cvattv.com.ar/live/c6eds/Volver/SA_Live_dash_enc_wl/Volver.mpd",
+                url: "//edge-mix01-bua.cvattv.com.ar/live/c6eds/Volver/SA_Live_dash_enc_wl/Volver.mpd",
                 k1: "194e53184a424ce6989ad82c5f28fbc5",
                 k2: "65d60c5cc4de031172be0a6a51edbdfe"
             },
             "warner": {
-                url: "//edge01-fdo-py.cvattv.com.ar/live/c7eds/WarnerHD/SA_Live_dash_enc_wl/WarnerHD.mpd",
+                url: "//edge-mix01-bua.cvattv.com.ar/live/c7eds/WarnerHD/SA_Live_dash_enc_wl/WarnerHD.mpd",
                 k1: "069bd3f0b6c279467e08549f17bf5bd0",
                 k2: "5afa7e369a6de1093818a85af912a775"
             },
             "eeuuchaa": {
-                url: "//edge01-fdo-py.cvattv.com.ar/live/c6eds/Eurochannel/SA_Live_dash_enc_2A_wl/Eurochannel.mpd",
+                url: "//edge-mix01-bua.cvattv.com.ar/live/c6eds/Eurochannel/SA_Live_dash_enc_2A_wl/Eurochannel.mpd",
                 k1: "6f0fc214d9844a7590f0884d55b44c42",
                 k2: "b2fe1bb5f9c79035301c328c1e93b0ee"
             },
             "eeuuropaaeeuropaa": {
-                url: "//edge01-fdo-py.cvattv.com.ar/live/c6eds/Europa_Europa/SA_Live_dash_enc_wl/Europa_Europa.mpd",
+                url: "//edge-mix01-bua.cvattv.com.ar/live/c6eds/Europa_Europa/SA_Live_dash_enc_wl/Europa_Europa.mpd",
                 k1: "b47f257df0314d09a7f8355c3abe1dc6",
                 k2: "bdc9f1696a82ee7398dd3a7fa82300e2"
             },
             "fiiandartsss": {
-                url: "//edge01-fdo-py.cvattv.com.ar/live/c6eds/Film_Arts/SA_Live_dash_enc_2A_wl/Film_Arts.mpd",
+                url: "//edge-mix01-bua.cvattv.com.ar/live/c6eds/Film_Arts/SA_Live_dash_enc_2A_wl/Film_Arts.mpd",
                 k1: "91c540d350f34f5386f3f1c77f74001f",
                 k2: "54ee72810551da0cba0c45a8df651962"
             },
             "teevecincofranc": {
-                url: "//edge01-fdo-py.cvattv.com.ar/live/c6eds/TV5_Monde/SA_Live_dash_enc_wl/TV5_Monde.mpd",
+                url: "//edge-mix01-bua.cvattv.com.ar/live/c6eds/TV5_Monde/SA_Live_dash_enc_wl/TV5_Monde.mpd",
                 k1: "62034ff5988b4787b17cdf6f751a3142",
                 k2: "b3938f0af28b4c0c082b0d4210e389a0"
             },
           "dehe": {
-                url: "//edge01-fdo-py.cvattv.com.ar/live/c7eds/DHE/SA_Live_dash_enc_wl/DHE.mpd",
+                url: "//edge-mix01-bua.cvattv.com.ar/live/c7eds/DHE/SA_Live_dash_enc_wl/DHE.mpd",
                 k1: atob("ZmY4MDAxNTZmODFmNzBjNjg3ZWNjYWFkZWRjMmNhMTU="),
                 k2: atob("OTM3YmExMzAxZTI3MDA4YjM0ZDAyYjlkOGEzMWEwZGI=")
             },
@@ -1234,10 +1335,10 @@ description: "EN VIVO",
         aspectratio: "16:9",
         stretching: "exactfit",
        skin: {
-           name: "bekle",
+           name: "white",
        active: "red",
-       inactive: " ",
-       background: ""
+       inactive: " white",
+       background: "#2B0034"
     }
        }
        );
