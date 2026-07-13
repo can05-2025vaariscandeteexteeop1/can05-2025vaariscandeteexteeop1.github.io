@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="no-referrer">
+  <title>exten-sen-cell</title>
+    <!-- Favicon -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" >
+ <style>
+ :root {
+            --nav_pantalla: 80px;
+         --dark-color: #001202;
+  --mid-dark: #051F20;
+  --light-color: #051F20;
+  --mid-light: #051F20;
+  --shadow: #051F20;
+  --linear-rainbow: linear-gradient(
+    to right,
+    #163832,
+    #163832,
+    #163832,
+    #163832,
+    #163832
+  );
+  --circle-rainbow: radial-gradient(
+    circle at left top,
+    #051F20,
+    #051F20,
+   #051F20,
+    #051F20,
+   #051F20
+  );
+  --noise-texture: url();
+  --gif-texture: url();
+  --mulish: "Mulish", sans-serif;
+  --playfair: "Playfair Display", serif;
+  --dm: "DM Serif Display", serif;
+  --main-transition: all 0.2s ease-in-out;
+}
+
+        body {
+             background-color: #05081c;
+            background-image: var(--noise-texture);
+             background-blend-mode: overlay;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        #player {
+            /* position: relative; */
+            width: 100%;
+            /* padding-top: 56.25%; */
+            background: #000;
+        }
+
+        #player iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            border: none;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .alert-card {
+            background-color: #333;
+            border-radius: 8px;
+            padding: 20px;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            margin: 20px auto;
+        }
+
+        .alert-card h2 {
+            margin-top: 0;
+            font-size: 20px;
+        }
+
+        .alert-card .boxicon {
+            font-size: 34px;
+            color: #ff0;
+        }
+
+        .alert-card p {
+            margin: 10px 0;
+            color: #ebebeb;
+        }
+
+        @media (max-width: 480px) {
+            .alert-card {
+                max-width: 90%;
+                padding: 5px;
+                /* margin-right: 50px; */
+            }
+
+            .alert-card h2 {
+                font-size: 20px;
+            }
+
+            .alert-card .boxicon {
+                font-size: 32px;
+            }
+
+            .alert-card p {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .alert-card {
+                max-width: 80%;
+                padding: 25px;
+            }
+
+            .alert-card h2 {
+                font-size: 22px;
+            }
+
+            .alert-card .boxicon {
+                font-size: 42px;
+            }
+
+            .alert-card p {
+                font-size: 16px;
+            }
+        }
+
+        a {
+            color: #0f0 !important;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="player" class="hidden"></div>
+        <div id="alerta-extension" class="hidden alert-card text-center bg-dark bg-gradient">
+            <i class="bx bx-error-circle boxicon"></i>
+            <p>Instala <a target="_blank"
+                    href="https://play.google.com/store/apps/details?id=net.quetta.browser&hl=es_PY">QUETTA
+                    Browser</a> de playstore,Luego la extension en el navegador el
+             <a target="_blank"
+                    href="https://chromewebstore.google.com/detail/videoplayer-mpdm3u8iptvep/opmeopcambhfimffbomjgemehjkbbmji">Reproductor
+                    </a>y recarga la opcion!,la extension lo encotraras en las utilidades del canal debajo de las opciones de los canales </p>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+
+        function isAndroid() {
+            const userAgent = navigator.userAgent.toLowerCase();
+            return /android/.test(userAgent) && !/android phone/.test(userAgent);
+        }
+
+        function showUnsupportedDeviceMessage() {
+            //     const unsupportedMessage = document.createElement('div');
+            //     unsupportedMessage.classList.add('alert-card', 'text-center', 'bg-dark', 'bg-gradient');
+            //     unsupportedMessage.innerHTML = `
+            //     <i class='bx bx-error-circle boxicon'></i>
+            //     <h2>Dispositivo no compatible</h2>
+            //     <p>Esta opcion solo es compatible en SmartPhone con sistema Android. Por favor, usa un Celular y sigue las instrucciones para ver el contenido.</p>
+            // `;
+            // document.body.appendChild(unsupportedMessage);
+
+            const unsupportedMessage = document.getElementById("alerta-extension");
+            unsupportedMessage.innerHTML = `
+                <i class='bx bx-error-circle boxicon'></i>
+                <h2>Dispositivo no compatible</h2>
+                <p>Esta opcion solo es compatible en SmartPhone con sistema Android. Por favor, usa un Celular y sigue las instrucciones para ver el contenido.</p>`;
+            unsupportedMessage.classList.remove("hidden");
+        }
+
+
+        // Verificar si es un dispositivo compatible antes de ejecutar el código principal
+        if (!isAndroid()) {
+            showUnsupportedDeviceMessage();
+        } else {
+
+            var stream = getParameterByName('id');
+
+            const links = [
+                // "https://elwood65-vadase.hf.space/proxy/hls/manifest.m3u8?api_password=shadow65&d=",
+                "https://"
+            ];
+            const linkAleatorio = links[Math.floor(Math.random() * links.length)];
+
+ var mt_red = ["eyJvcmlnaW4iOiJodHRwczovL3dlYmNsaWVudC5hbnRpbmFwbGF5cGx1cy5jb20uYXIiLCJyZWZlcmVyIjoiaHR0cHM6Ly93ZWJjbGllbnQuYW50aW5hcGxheXBsdXMuY29tLmFyLyJ9",
+"eyJvcmlnaW4iOiJodHRwczovL3dlYmNsaWVudC5hbnRpbmFwbGF5cGx1cy5jb20uYXIiLCJyZWZlcmVyIjoiaHR0cHM6Ly93ZWJjbGllbnQuYW50aW5hcGxheXBsdXMuY29tLmFyLyIsInVzZXItYWdlbnQiOiJNb3ppbGxhLzUuMCAoV2luZG93cyBOVCAxMC4wOyBXaW42NDsgeDY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvMTQ4LjAuMC4wIFNhZmFyaS81MzcuMzYiLCJzZWMtY2gtdWEtcGxhdGZvcm0iOiJcIldpbmRvd3NcIiIsInNlYy1jaC11YS1tb2JpbGUiOiI%2FMCIsInNlYy1ncGMiOiIxIn0"];
+            let mt_gigared = mt_red[Math.floor(Math.random() * mt_red.length)];
+
+            console.log(mt_gigared);
+
+            var ConfiguracionCanales = {
+               <!--------------------------DEPO---------------------------------->
+              "eeespee1-seeen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/ESPN/live_dash_cld/ESPN.mpd?ck=eyI2ZDI0M2ViZDdhNTdiZWE0YjRiMDUyYWUxM2Y0YzA1MSI6IjVjMTkyNTg3OWRlODczZDQzYjdjMjU5MjU5MDI1MzliIn0=&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },
+        "eeespee2-seeen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/ESPN2/live_dash_cld/ESPN2.mpd?ck=eyI2YThiZDY0OTZkMjQ0NDMwMWM5ZDRkMGZlY2E5ZDc1YiI6IjNmZDE5Njc3MDFiYTI4OTc3MjkxODdiNjAwOTRjMTU4In0&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },
+        "eeespee3-seeen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/ESPN3/live_dash_cld/ESPN3.mpd?ck=eyI4ODM2MjUyMDU5Yjc5M2E3OTE3MzgzOGRjMTE4NmZmMSI6ImFhMTZmOTBlNTFjZTU2NTJkYWI5MzgzNGU0MzRjYWE4In0=&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },
+        "eeespee4-seeen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/ESPN4/live_dash_cld/ESPN4.mpd?ck=eyIwMzQ2NTNkMzQxM2YyM2U4NzI0OWQxZmI3ZTY4MzU5YSI6ImEwZDZiODQ5ZjE3YzQzMGU5Y2MwMmQwNzczOWE0ZTRhIn0=&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },
+           "eeespee5-seeen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/ESPN5Bolivia/live_dash_cld/ESPN5Bolivia.mpd?ck=eyJhZmFkYzU2ZGI3ZTk2OTBlZmRhZGVkNWJiYTBlNmQ1ZCI6IjMzNjNhNTg4MDAxODgyMWJkZDg1NGRkY2RmODc5NzgwIn0&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },        
+         "eeespee6-seeen": {
+                    url: "https://cdn.sensa.com.ar/bpk-tv/ESPN6Bolivia/default/index.mpd?ck=eyIyNjNiNDMzZmFlZDQwZDIyMWM4ZGU0Yjc3MTEzZWZjZSI6IjBjZTUwOTY4OWMwYTZhOWJlNTdkMzY2Y2U0MTI5NjUwIn0&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },     
+           "eeespee7-seeen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/ESPN7Bolivia/live_dash_cld/ESPN7Bolivia.mpd?ck=eyIwNTViMjY4NzNkNzRiYzlhN2YxMGJkMTA5MDBmNDYxYyI6IjU1ZmYxZjY2ZGQ5NDI5MDQ3NjY3MmUwYzExNDNjMWEyIn0&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },  
+            "eeespeepree-seeen": {
+                    url: "https://cdn.sensa.com.ar/bpk-tv/ESPNPremium/default/index.mpd?ck=eyJmODk0M2QxMTRlMjUxNTFjOGFlNGY2MTIzNTFkNWE1ZiI6IjdmMzRjOWE3MGM4MzYwMjBjYmMzMjczYzQyN2ZmMjc3In0=&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },
+                "teeeinsee-seeen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/TYCSports/live_dash_cld/TYCSports.mpd?ck=eyI1M2QwY2Y2YzFkNDljMTZmNTE4MGY4NmUxODcwYjAwZiI6IjdlYjY3NDNiNWY0NGI1MmJhMjdjODgyMjljOGM3YWUyIn0=&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },
+               "eeespee1boo-seeen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/ESPN-Bolivia/live_dash_cld/ESPN-Bolivia.mpd?ck=eyJlMWVmNWM4MjVkYTQ4ZmJlZWFhMzBlOGY2MGNlNDRiZCI6Ijk4MmQxMjczYzRhMWNmNmRkYjhiMjMwNmEwMjVkMmY3In0=&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },
+             "eeespee2boo-seeen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/ESPN2Bolivia/live_dash_cld/ESPN2Bolivia.mpd?ck=eyJiYmY2ODExY2E5Y2NjYmE4ZTczODE3YjNjMWUwMzQzMyI6IjI3YThkNzg1NTc5ZjIzZGRlMzlhYzE5MzdjZjdiZDUzIn0=&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },
+          "foo1-seen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/FoxSports1/live_dash_cld/FoxSports1.mpd?ck=eyIxYTYxYjY0NGZkYzY4NTY4YjViZTNlMjYyOTA0MTU2NCI6ImExNjcyY2RmYjVkZTY0NzA3MTUxMTI4ZjgxMWRhNjY3In0&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },
+         "foo2-seen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/FoxSports2/live_dash_cld/FoxSports2.mpd?ck=eyI2ZWMxYzU2MjBmNWMxNTUzZDMyMzg5ODg3MTRlNzFiMiI6ImI4OTE3YjEyZTg1MWRmYzdiYjhhM2I4MzIzNDhiM2JlIn0&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },
+         "foo3-seen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/FoxSports3/live_dash_cld/FoxSports3.mpd?ck=eyJjN2Y4N2U1MWM1NmE4N2E1OWNhYjdlYzk4ZmQwNjJkYiI6ImMzZjBkN2QwNjdlMzg1OTAwYTBlNmQ0YzhlNDA2YTY4In0&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },
+           "teeespooarge-seen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/TNTSports/live_dash_cld/TNTSports.mpd?ck=eyJjMjYzNzEwNzllODkyMDZkNjNlMTQ1NDg5M2U4ODFiNiI6ImFkYWMzYzNiMzc3NGU0MTFkNmU0OTcyNGY3ZWEwZWUzIn0&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },  
+              
+ <!--------------------------PELICULAS---------------------------------->
+                "cieeecaa-seen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/Cinecanal/live_dash_cld/Cinecanal.mpd?ck=eyJhY2VhMzRhNGRhZGY3ODk2YTAyODBiMDg0OTZkNDlkNSI6IjZlYjYxYTNiZjM0MTFjNjRmODliNTk0ZTU3ZDQ4N2M2In0&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },
+               "cieeemaa-seen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/Cinemax/live_dash_cld/Cinemax.mpd?ck=eyIzYjNkODlmMGUwOTlmNzUwYmFiNGY4YzJlYmM0YzdlYyI6IjExNDMxM2Y3MzRlN2E4ZTg0YjBjYTZkMTZiZDY1MmNiIn0&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },
+          "spaaeee-seen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/Space/live_dash_cld/Space.mpd?ck=eyJmZDc1MTZlNzRlYWZiZjZmOTY2NGE5NDY1MTQ5ZjE3OSI6IjZhYTI5MzVkMTdmZDRlMWU4OTYzZWNiZWY0ZWRiODJiIn0&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },  
+        "staachaa-seen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/StarChannel/live_dash_cld/StarChannel.mpd?ck=eyI3ODM5NjY5M2IxNzIxNTgxNzZjMzNjMjhmMmU3YzBiOCI6IjFlMjUxMTEyODE5YTM0ZWQ2OTFiYzM4ODFjNjRlYTRkIn0&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                }, 
+       "waaachaa-seen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/Warner/live_dash_cld/Warner.mpd?ck=eyIwY2QxNmY5ZWFkZTViZGRhYjQxZmQzZDU5ZjgwNGJjYiI6Ijg4NWRjOTNiMDY5MmUyZWZlMzc0NDlhNGE1NjE3M2VmIn0&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },  
+        "teeeceemm-seen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/TCM/live_dash_cld/TCM.mpd?ck=eyIxOGNmZTI3YWRhZDJlNDQ0ZGMwZjUwYTMyMzhhMTc0MCI6ImEwZTI1ZjE4YmU5NGQ2ZWIxYzk3MzMxMTExMzVjMDQ3In0&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },
+       "deeehee-seen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/DHE/live_dash_cld/DHE.mpd?ck=eyI1NDUzMTgwMDc0YzBhOGVjZmUyYTIxZTBjZDVmMmMxYiI6IjExNTBmZDkzNDkyYmE4NjA5ZmI5NGQwYTMwODdiM2E1In0&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },  
+              "teeeteepel-seen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/TNT/live_dash_cld/TNT.mpd?ck=eyI5MDJmMWY4NTdjMzAwODFiMjQ5YWUzNThlMTJmOWI4MiI6ImZmZjhjYjBkOTNiNTc4NDVjMWNjYmE0NThmNTE5NzBkIn0&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },  
+              "teeeteeser-seen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/TNTSeries/live_dash_cld/TNTSeries.mpd?ck=eyIyZDE1ZjJkMmY4ZjgxZmJhY2Q4MjM5MWY1ODg5YWEzYSI6Ijk3YzdhNTAyOTUwMGE4MWQzN2YyYjcwZDYyNzZmYzlhIn0&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },  
+              "teeeteenove-seen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/TNTNovelas/live_dash_cld/TNTNovelas.mpd?ck=eyI4YTAyNmZjM2Q0NDM0NTRjZjFhYWU0ODZiNjg4Y2E5YSI6Ijc2NjVjMmY2ZTc5MWQ0NGYwNDdlNWZmYTkyNzM4MmFhIn0&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },  
+              "aameepel-seen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/AMC/live_dash_cld/AMC.mpd?ck=eyI2OGZjNzhjYjZmZTU4MGMzNWQyNjlkYTg3YTQ3MWViMCI6IjJiZDYyMzIyMGEyNDdkOTVkNjkwMGNlYTYxMjc2OWRmIn0&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },   
+        "aameeser-seen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/AMCSeries/live_dash_cld/AMCSeries.mpd?ck=eyI0MjBhOGE4Zjc0ZThhMmI4NTBjYWU4NDIyMjE2YTY1MyI6IjAzYWRjMTQyMDM4MzQzZjg1NThmZDA5ZmEyODE2M2NiIn0&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },   
+     "aaeequii-seen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/AXN/live_dash_cld/AXN.mpd?ck=eyI4MjhjNDczY2IxOTJjYWFiYThlMWQ5ZmM2M2RhNGQ3NSI6ImNiNjAwODYxZTk4MjJlZmVlYTVkMmRiZDBjMTU3YzQ1In0&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },   
+   "efeeequii-seen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/FX/live_dash_cld/FX.mpd?ck=eyJiYmI4YzgxODIyYTE2MjhmNDk4NmM2Mzc5Y2E1NDA2YSI6ImI2NjEyNjViYWFkYTUzMjRlYjgyNjIyNGE0ZjM1OGJkIn0&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },
+               "sooonii-seen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/Sony/live_dash_cld/Sony.mpd?ck=eyIyNThiNDU1ZWVlNzZkNjQwNmY4N2RkMDJkZGM3MzVkOSI6ImRkOGFhZDc0Yzc5ZmU4MzljYzE0MmQwZmY2Njk0NDczIn0&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },   
+             "usssneeeepel-seen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/USANetwork/live_dash_cld/USANetwork.mpd?ck=eyIzYTFlNzY2MTE5YzNmYjAzYjA5NWM4ZTdmMGU2MzEzOSI6IjAzOTMyMzY0ZTFmZjZhYjY4Y2RjMmMxOTY5YWVlNmE1In0&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },   
+             "euuuropaeeeu-seen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/EuropaEuropa/live_dash_cld/EuropaEuropa.mpd?ck=eyIwMWM2Mjk1ZTNmYzk4MzUyNDI3OTQxZGMxMDE1NjA1YSI6ImJhYzljOTczNDBkZjBiODEzYTlmMDhjNTQ4ODBmZWI0In0&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },   
+               "eeeurochaaa-seen": {
+                    url: "https://cdn.sensa.com.ar/bpk-tv/Eurochannel/default/index.mpd?ck=eyJiZjEzMjRlYWIyNjNiNzJmNWQ4MzczYTk2NzhlNjc3NCI6IjEzNzVjZDMzOTA3NzJiMDNiNTEzNmRjZTE2NDFiYTg0In0&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                }, 
+            "stuuuunivee-seen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/StudioUniversal/live_dash_cld/StudioUniversal.mpd?ck=eyIzYTA3YjIyMGY4ZjE0MmEwZWY4NjYyZmZhMGFkZWU0ZiI6ImU4ODg0NmQwNDBjZDE1N2IyOGZmZGExZDQ0YTVjZjg5In0&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },   
+             "uuuniveee-seen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/Universal/live_dash_cld/Universal.mpd?ck=eyI3YzZjYzM2YjljM2Y0NGYzN2I3MTNhZDQwNDgzZTA4NSI6ImNlYWVjZjcwYjk5NzgwOTY3ZDk3YjllYWY2ZTJhZDVmIn0&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },  
+               "uuuniveeeciee-seen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/UniCin/live_dash_cld/UniCin.mpd?ck=eyI2YTY1ZTc3ZmI1ZjI4MzhiMmY5N2M3NzhjYzU3MWFjMiI6ImJjMWYyOGIxZWM2MTllZDdkYTIyZmM5YTgwZDNhMzVkIn0&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },   
+               "uuuniveeecomee-seen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/UniCom/live_dash_cld/UniCom.mpd?ck=eyI5NGNkYWI4NjczZmUyMzFhOGRlNTcyNTllYWM1NTIyYiI6IjExMjVkMTU0NjQ5NzcwY2MxMjI3NzA1MzFiOGY4YjMwIn0&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },   
+            "uuuniveeecrieeeem-seen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/UniCri/live_dash_cld/UniCri.mpd?ck=eyI3YWQxY2ZlOGVkYmMzNWI1YmFiMWE2NmE1Y2UyOThiMyI6IjI1Nzk0YWUxZGYxZTk5MDhkNDNhMTAyNDgxZTdkMzExIn0&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },   
+             "uuuniveeereea-seen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/UniRea/live_dash_cld/UniRea.mpd?ck=eyJkZmJjYmU2NTZiMzQ4ODRkOGY4ZGNjNTdkMmRjNTFmOCI6ImQzZTJjMDMwMDNiNDQzY2NlZGQzMGQ2NDQyZmJkZDQwIn0&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },    
+           "uuuniveeepree-seen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/UniPre/live_dash_cld/UniPre.mpd?ck=eyI0Y2E0NzliYTg5NjNmMTMyYzcwMWVlZmFhMGZiMmI1YSI6ImJlZDIzNTE5NGRhNWUxODEwOGMxMmVmODFiMzI0YTgwIn0&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },   
+          "hhhhbb111-seen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/HBO/live_dash_cld/HBO.mpd?ck=eyJkZWFkMDIzZjdhODE2MzQzMzlhZTYzOTk5MGMxNTE3YSI6ImJhOTcwMjIyYjQ0NjZjNjFkMGRlY2NjNjdhYjM0NDUyIn0&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },        
+           "hhhhbb222-seen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/HBO2/live_dash_cld/HBO2.mpd?ck=eyJmOTYyYjc2YzM2OTNkYWZlZTAxMTc0NjM0NGI1ZTgyMyI6IjFhYzg2M2YxNjMzZGZjMmQzZGIwNjlmM2RkOWE4MTQ1In0&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },       
+          "hhhhbb333-seen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/HBOPlus/live_dash_cld/HBOPlus.mpd?ck=eyJjNmYzODZkYjQyYzA4M2E4MmI4OTY5MDY0ZWI5OTA3ZCI6ImRjNDkyOTY5Y2U2YjljYjM5MDlhNWQ1OWEzM2Y4OGRhIn0&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },       
+          "hhhhbb444-seen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/HBOFamily/live_dash_cld/HBOFamily.mpd?ck=eyJjNmYzODZkYjQyYzA4M2E4MmI4OTY5MDY0ZWI5OTA3ZCI6ImRjNDkyOTY5Y2U2YjljYjM5MDlhNWQ1OWEzM2Y4OGRhIn0&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },                 
+         "hhhhbb555-seen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/HBOMundi/live_dash_cld/HBOMundi.mpd?ck=eyJiZWE1ZGE0NGY0OWE3ZTMwZDIxYTZlMGEyZmRkYzIyNSI6IjAxODViMjA5YmY1MGUyYTFiMWNmZDQxNmRiNTE3N2RlIn0&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },         
+         "hhhhbb66-seen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/HBOSignature/live_dash_cld/HBOSignature.mpd?ck=eyJiZjQ4YmE4OWUwM2I0MWU1Mjg4MmE3ZTE1NWZhY2Q5YyI6IjUwMTAzZDhhODE5ZDRmYWVkNGU0NGRjNmNkOTA4MDY2In0&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },       
+          "hhhhbb777-seen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/HBOPop/live_dash_cld/HBOPop.mpd?ck=eyJkNWNmMWFkOWM3YmMwYTIwMDUxNTM1YWZmNjNhNWMwNCI6IjAxOWVhMGRlNTkwYTAxMzg1ZjUwYWUzZmUwOTBkMTllIn0&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },         
+           "hhhhbb888-seen": {
+                    url: "https://cdn.sensa.com.ar/live/eds/HBOXtreme/live_dash_cld/HBOXtreme.mpd?ck=eyIzM2Q0ODIzZWQyY2FlNTVjMTlmYTBhN2MyMGZhNDIzNSI6ImE2NGM0ZDU1ZWRiMjAwNDY4MDJlNzYzMzJjOGFhNzVlIn0&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },         
+          "mooorbiii-seen": {
+                    url: "https://cdn.sensa.com.ar/bpk-tv/Morbido/default/index.mpd?ck=eyI2YTQ4ZTkyM2RmMGIxNzgzYmZhMGU4MmEzYzUxZmMyMCI6IjEyMjY3NjkwNjI1NmZiMDE1NGQ4NDE5MzY5MDljNTdiIn0&headers=" + mt_gigared + "",
+                    k1: "vacio",
+                    k2: "vacio"
+                },
+                "natgeowild": {
+                    url: "http://185.189.225.150:85/natgeowild/index.m3u8",
+                    k1: "vacio",
+                    k2: "vacio"
+                },
+            };
+
+
+            var config = ConfiguracionCanales[stream];
+
+            // Convertir keyId y key a una cadena JSON
+            if (config.k1 && config.k2) {
+                if (config.k1 != "vacio" && config.k2 != "vacio") {
+                    var keyString = `"${config.k1}":"${config.k2}"`;
+                    var base64Key = btoa(keyString);
+
+                    // Construir la URL con el key ofuscado en base64
+                    var extensionUrl = `chrome-extension://opmeopcambhfimffbomjgemehjkbbmji/pages/player.html#${config.url}?ck=${encodeURIComponent(base64Key)}&headers=eyJvcmlnaW4iOiJodHRwczovL3dlYmNsaWVudC5hbnRpbmFwbGF5cGx1cy5jb20uYXIiLCJyZWZlcmVyIjoiaHR0cHM6Ly93ZWJjbGllbnQuYW50aW5hcGxheXBsdXMuY29tLmFyLyJ9`;
+                } else {
+                    var extensionUrl = "chrome-extension://opmeopcambhfimffbomjgemehjkbbmji/pages/player.html#" + config.url;
+                }
+                // Mostrar el reproductor o el mensaje de extensión según corresponda
+                const playerDiv = document.getElementById("player");
+                const alertaDiv = document.getElementById("alerta-extension");
+
+                isExtensionInstalled(
+                    () => {
+                        playerDiv.classList.remove("hidden");
+                        // jwplayer("player").setMute(false);
+                        playerDiv.innerHTML = `<iframe id="iframe" allow="encrypted-media" allowfullscreen src="${extensionUrl}"></iframe>`;
+                    },
+                    () => {
+                        alertaDiv.classList.remove("hidden");
+                    }
+                );
+            } else {
+                alert('KeyId o Key no definidos.');
+            }
+        }
+
+        // Función para verificar si la extensión está instalada
+        function isExtensionInstalled(installedCallback, notInstalledCallback) {
+            const img = document.createElement('img');
+            img.onload = installedCallback;
+            img.onerror = notInstalledCallback;
+            img.src = 'chrome-extension://opmeopcambhfimffbomjgemehjkbbmji/play-on.png';
+        }
+    </script>
+</body>
+</html>
